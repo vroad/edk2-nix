@@ -1,0 +1,13 @@
+diff --git a/BaseTools/GNUmakefile b/BaseTools/GNUmakefile
+index d29f6d9c9b..6479b7359f 100644
+--- a/BaseTools/GNUmakefile
++++ b/BaseTools/GNUmakefile
+@@ -10,7 +10,7 @@ all: subdirs
+ LANGUAGES = C Python
+ 
+ SOURCE_SUBDIRS := $(patsubst %,Source/%,$(sort $(LANGUAGES)))
+-SUBDIRS := $(SOURCE_SUBDIRS) Tests
++SUBDIRS := $(SOURCE_SUBDIRS)
+ CLEAN_SUBDIRS := $(patsubst %,%-clean,$(sort $(SUBDIRS)))
+ 
+ .PHONY: subdirs $(SUBDIRS)

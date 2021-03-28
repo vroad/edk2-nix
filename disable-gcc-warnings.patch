@@ -1,0 +1,26 @@
+diff --git a/BaseTools/Conf/tools_def.template b/BaseTools/Conf/tools_def.template
+index 933b3160fd..1e6a919fa4 100755
+--- a/BaseTools/Conf/tools_def.template
++++ b/BaseTools/Conf/tools_def.template
+@@ -2405,7 +2405,7 @@ RELEASE_GCC5_IA32_DLINK_FLAGS    = DEF(GCC5_IA32_X64_DLINK_FLAGS) -flto -Os -Wl,
+   DEBUG_GCC5_X64_CC_FLAGS        = DEF(GCC5_X64_CC_FLAGS) -flto -DUSING_LTO -Os
+   DEBUG_GCC5_X64_DLINK_FLAGS     = DEF(GCC5_X64_DLINK_FLAGS) -flto -Os
+
+-RELEASE_GCC5_X64_CC_FLAGS        = DEF(GCC5_X64_CC_FLAGS) -flto -DUSING_LTO -Os -Wno-unused-but-set-variable -Wno-unused-const-variable
++RELEASE_GCC5_X64_CC_FLAGS        = DEF(GCC5_X64_CC_FLAGS) -flto -DUSING_LTO -Os -Wno-unused-but-set-variable
+ RELEASE_GCC5_X64_DLINK_FLAGS     = DEF(GCC5_X64_DLINK_FLAGS) -flto -Os
+
+   NOOPT_GCC5_X64_CC_FLAGS        = DEF(GCC5_X64_CC_FLAGS) -O0
+diff --git a/CryptoPkg/Library/OpensslLib/OpensslLibCrypto.inf b/CryptoPkg/Library/OpensslLib/OpensslLibCrypto.inf
+index 3557711bd8..fdb81d52bc 100644
+--- a/CryptoPkg/Library/OpensslLib/OpensslLibCrypto.inf
++++ b/CryptoPkg/Library/OpensslLib/OpensslLibCrypto.inf
+@@ -567,7 +567,7 @@
+   #   -Werror=unused-but-set-variable: Warn whenever a local variable is assigned to, but otherwise unused (aside from its declaration).
+   #
+   GCC:*_*_IA32_CC_FLAGS    = -U_WIN32 -U_WIN64 $(OPENSSL_FLAGS) -Wno-error=maybe-uninitialized -Wno-error=unused-but-set-variable
+-  GCC:*_*_X64_CC_FLAGS     = -U_WIN32 -U_WIN64 $(OPENSSL_FLAGS) -Wno-error=maybe-uninitialized -Wno-error=format -Wno-format -Wno-error=unused-but-set-variable -DNO_MSABI_VA_FUNCS
++  GCC:*_*_X64_CC_FLAGS     = -U_WIN32 -U_WIN64 $(OPENSSL_FLAGS) -Wno-error=maybe-uninitialized -Wno-error=format -Wno-error=unused-but-set-variable -DNO_MSABI_VA_FUNCS
+   GCC:*_*_ARM_CC_FLAGS     = $(OPENSSL_FLAGS) -Wno-error=maybe-uninitialized -Wno-error=unused-but-set-variable
+   GCC:*_*_AARCH64_CC_FLAGS = $(OPENSSL_FLAGS) -Wno-error=maybe-uninitialized -Wno-format -Wno-error=unused-but-set-variable
+   GCC:*_*_RISCV64_CC_FLAGS = $(OPENSSL_FLAGS) -Wno-error=maybe-uninitialized -Wno-format -Wno-error=unused-but-set-variable
